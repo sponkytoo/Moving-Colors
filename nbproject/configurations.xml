@@ -11,7 +11,6 @@
         <itemPath>mcc_generated_files/pwm5.h</itemPath>
         <itemPath>mcc_generated_files/tmr2.h</itemPath>
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
-        <itemPath>mcc_generated_files/clc1.h</itemPath>
         <itemPath>mcc_generated_files/spi1.h</itemPath>
         <itemPath>mcc_generated_files/dma1.h</itemPath>
         <itemPath>mcc_generated_files/clc2.h</itemPath>
@@ -32,7 +31,6 @@
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/pwm5.c</itemPath>
-        <itemPath>mcc_generated_files/clc1.c</itemPath>
         <itemPath>mcc_generated_files/spi1.c</itemPath>
         <itemPath>mcc_generated_files/dma1.c</itemPath>
         <itemPath>mcc_generated_files/clc2.c</itemPath>

@@ -13,7 +13,7 @@
    @Description
      This source file provides implementations for driver APIs for PWM5.
      Generation Information :
-         Product Revision  :  MPLAB(c) Code Configurator - 4.15
+         Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
          Device            :  PIC18F25K42
          Driver Version    :  2.00
      The generated drivers are tested against the following:

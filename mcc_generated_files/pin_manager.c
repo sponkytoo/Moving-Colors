@@ -13,7 +13,7 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
         Device            :  PIC18F25K42
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -62,7 +62,7 @@ void PIN_MANAGER_Initialize(void)
     */    
     TRISA = 0xF7;
     TRISB = 0xFF;
-    TRISC = 0xD3;
+    TRISC = 0xD7;
 
     /**
     ANSELx registers
@@ -100,7 +100,6 @@ void PIN_MANAGER_Initialize(void)
     SPI1SDIPPSbits.SPI1SDIPPS = 0x14;   //RC4->SPI1:SDI1;
     RC3PPS = 0x1E;   //RC3->SPI1:SCK1;
     CLCIN0PPSbits.CLCIN0PPS = 0x00;   //RA0->CLC2:CLCIN0;
-    RC2PPS = 0x01;   //RC2->CLC1:CLC1;
     SPI1SCKPPSbits.SPI1SCKPPS = 0x13;   //RC3->SPI1:SCK1;
     RC5PPS = 0x02;   //RC5->CLC2:CLC2;
     T2INPPSbits.T2INPPS = 0x13;   //RC3->TMR2:T2IN;

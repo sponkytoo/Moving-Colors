@@ -13,7 +13,7 @@
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
         Device            :  PIC18F25K42
         Version           :  1.02
     The generated drivers are tested against the following:
@@ -49,12 +49,11 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "dma1.h"
-#include "clc2.h"
-#include "clc1.h"
-#include "spi1.h"
 #include "tmr2.h"
 #include "pwm5.h"
+#include "spi1.h"
+#include "dma1.h"
+#include "clc2.h"
 
 #define _XTAL_FREQ  64000000
 

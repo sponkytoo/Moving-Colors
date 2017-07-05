@@ -13,7 +13,7 @@
   Description:
     This header file provides APIs for driver for DMA.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
         Device            :  PIC18F25K42
         Driver Version    :  1.00
     The generated drivers are tested against the following:

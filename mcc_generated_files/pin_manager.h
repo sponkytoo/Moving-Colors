@@ -13,7 +13,7 @@
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
         Device            :  PIC18F25K42
         Version           :  1.01
     The generated drivers are tested against the following:
@@ -90,18 +90,6 @@
 #define IO_RA3_SetOpenDrain()   do { ODCONAbits.ODCA3 = 0; } while(0)
 #define IO_RA3_SetAnalogMode()  do { ANSELAbits.ANSELA3 = 1; } while(0)
 #define IO_RA3_SetDigitalMode() do { ANSELAbits.ANSELA3 = 0; } while(0)
-
-// get/set RC2 procedures
-#define RC2_SetHigh()    do { LATCbits.LATC2 = 1; } while(0)
-#define RC2_SetLow()   do { LATCbits.LATC2 = 0; } while(0)
-#define RC2_Toggle()   do { LATCbits.LATC2 = ~LATCbits.LATC2; } while(0)
-#define RC2_GetValue()         PORTCbits.RC2
-#define RC2_SetDigitalInput()   do { TRISCbits.TRISC2 = 1; } while(0)
-#define RC2_SetDigitalOutput()  do { TRISCbits.TRISC2 = 0; } while(0)
-#define RC2_SetPullup()     do { WPUCbits.WPUC2 = 1; } while(0)
-#define RC2_ResetPullup()   do { WPUCbits.WPUC2 = 0; } while(0)
-#define RC2_SetAnalogMode() do { ANSELCbits.ANSELC2 = 1; } while(0)
-#define RC2_SetDigitalMode()do { ANSELCbits.ANSELC2 = 0; } while(0)
 
 // get/set RC3 procedures
 #define RC3_SetHigh()    do { LATCbits.LATC3 = 1; } while(0)

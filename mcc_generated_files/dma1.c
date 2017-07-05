@@ -14,7 +14,7 @@
   @Description
     This source file provides APIs for DMA.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
         Device            :  PIC18F25K42
         Driver Version    :  1.00
     The generated drivers are tested against the following:
@@ -81,7 +81,7 @@
 /**
   Section: DMA APIs
  */
-extern uint8_t MyPxelArray[];
+extern uint8_t MyPixelArray[];
 
 void DMA1_Initialize(void) {   
     
@@ -93,7 +93,7 @@ void DMA1_Initialize(void) {
     /* 1. Program the appropriate Source and Destination addresses for the
      * transaction into the DMAxSSA and DMAxDSA registers
      */
-    DMA1SSA = (unsigned short long) & MyPxelArray[0]; /* source address */
+    DMA1SSA = (unsigned short long) & MyPixelArray[0]; /* source address */
     DMA1DSA = (unsigned short long) & SPI1TXB; /* destination address */
 
     /* 2. Select the source memory region that is being addressed by DMAxSSA

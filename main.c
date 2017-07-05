@@ -48,7 +48,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "rgb_led.h"
 
-uint8_t MyPxelArray[16][3];
+uint8_t MyPixelArray[16][3];
 
 #define LED_GREEN   0
 #define LED_RED     1
@@ -138,9 +138,9 @@ void main(void) {
 
     /* clear the entire RGB matrix */
     for (ix = 0; ix < 16; ix++) {
-        MyPxelArray[ix][0] = 0;
-        MyPxelArray[ix][1] = 0;
-        MyPxelArray[ix][2] = 0;
+        MyPixelArray[ix][0] = 0;
+        MyPixelArray[ix][1] = 0;
+        MyPixelArray[ix][2] = 0;
     }
     /* Trigger the SPI to start DMA */
     SPI1INTFbits.SPI1TXUIF = 1;
@@ -199,9 +199,9 @@ void main(void) {
                 if (brightness_red < 0)brightness_red = 0;
 
                 ix = xp * 4 + yp;
-                MyPxelArray[ix][LED_GREEN] = brightness_green;
-                MyPxelArray[ix][LED_BLUE] = brightness_blue;
-                MyPxelArray[ix][LED_RED] = brightness_red;
+                MyPixelArray[ix][LED_GREEN] = brightness_green;
+                MyPixelArray[ix][LED_BLUE] = brightness_blue;
+                MyPixelArray[ix][LED_RED] = brightness_red;
             }
         }
 

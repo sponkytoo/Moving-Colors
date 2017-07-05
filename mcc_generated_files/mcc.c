@@ -13,7 +13,7 @@
   @Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15
+        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
         Device            :  PIC18F25K42
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -102,7 +102,6 @@ void SYSTEM_Initialize(void)
 
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
-    CLC1_Initialize();    
     DMA1_Initialize();
     CLC2_Initialize();
     TMR2_Initialize();
