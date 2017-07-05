@@ -48,7 +48,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "rgb_led.h"
 
-uint8_t MyPixelArray[16][3];
+uint8_t MyPixelArray[LED_CNT][3];
 
 #define LED_GREEN   0
 #define LED_RED     1
@@ -137,7 +137,7 @@ void main(void) {
     //INTERRUPT_GlobalInterruptDisable();
 
     /* clear the entire RGB matrix */
-    for (ix = 0; ix < 16; ix++) {
+    for (ix = 0; ix < LED_CNT; ix++) {
         MyPixelArray[ix][0] = 0;
         MyPixelArray[ix][1] = 0;
         MyPixelArray[ix][2] = 0;
@@ -171,41 +171,47 @@ void main(void) {
         LATAbits.LA3 = 1;
         
         /* calculate brightness of every LED (currently 2.46ms)*/
-        for (xp = 0; xp < 4; xp++) {
-            for (yp = 0; yp < 4; yp++) {
+        for (xp = 0; xp < X_LED_N; xp++) {
+            for (yp = 0; yp < Y_LED_N; yp++) {
 
-                temp1 = ((xp * 4) - xt_green);
+                /* x^2 */
+                temp1 = ((xp * SCALE_FACTOR) - xt_green);
                 temp1 *= temp1;
-                temp2 = ((yp * 4) - yt_green);
+                temp2 = ((yp * SCALE_FACTOR) - yt_green);
                 temp2 *= temp2;
+                /* Square Root of sum gives distance */
                 dt_green = (int16_t) sqrt2(temp1 + temp2);
-                brightness_green = 16 - dt_green;
+                /* reverse the distance and use it as brightness */
+                brightness_green = MAX_BRIGHTNESS - dt_green;
+                /* clamp the result that no brightness overshoot happens */
                 if (brightness_green < 0)brightness_green = 0;
 
-                temp1 = ((xp * 4) - xt_blue);
+                temp1 = ((xp * SCALE_FACTOR) - xt_blue);
                 temp1 *= temp1;
-                temp2 = ((yp * 4) - yt_blue);
+                temp2 = ((yp * SCALE_FACTOR) - yt_blue);
                 temp2 *= temp2;
                 dt_blue = (int16_t) sqrt2(temp1 + temp2);
-                brightness_blue = 16 - dt_blue;
+                brightness_blue = MAX_BRIGHTNESS - dt_blue;
                 if (brightness_blue < 0)brightness_blue = 0;
 
-                temp1 = ((xp * 4) - xt_red);
+                temp1 = ((xp * SCALE_FACTOR) - xt_red);
                 temp1 *= temp1;
-                temp2 = ((yp * 4) - yt_red);
+                temp2 = ((yp * SCALE_FACTOR) - yt_red);
                 temp2 *= temp2;
                 distance_red = (int16_t) sqrt2(temp1 + temp2);
-                brightness_red = 16 - distance_red;
+                brightness_red = MAX_BRIGHTNESS - distance_red;
                 if (brightness_red < 0)brightness_red = 0;
 
-                ix = xp * 4 + yp;
+                /* calculate index from coordinates */
+                ix = xp * X_LED_N + yp;
+                /* set brightness in pixel array */
                 MyPixelArray[ix][LED_GREEN] = brightness_green;
                 MyPixelArray[ix][LED_BLUE] = brightness_blue;
                 MyPixelArray[ix][LED_RED] = brightness_red;
             }
         }
 
-        /* move the dots */
+        /* move the dots and change direction if border is reached */
         xt_green += xt_st_green;
         if ((xt_green >= 32) || (xt_green <= -16)) {
             xt_st_green *= -1;
@@ -249,105 +255,6 @@ void main(void) {
 
     }
 }
-
-
-/*        
-__delay_ms(50);
-         
-// Set led
-MyData[ps][cl] = 0x10;
-
-// reset old led 
-if (ps == 0) {
-    MyData[16 - 1][GREEN] = 0;
-    MyData[16 - 1][RED] = 0;
-    MyData[16 - 1][BLUE] = 0;
-} else {
-    MyData[ps - 1][GREEN] = 0;
-    MyData[ps - 1][RED] = 0;
-    MyData[ps - 1][BLUE] = 0;
-}
-
-// move index
-ps++;
-if (ps == 16) {
-    ps = 0;
-    // change color
-    cl++;
-    if (cl == 3)cl = 0;
-}
- */
-
-/*
-__delay_ms(200);
-for (ix = 0; ix < 16; ix++) {
-    MyData[ix][0] = green;
-    MyData[ix][1] = red;
-    MyData[ix][2] = blue;
-}
-
-green += green_st;
-if (green == 30 || green == -1) {
-    green_st *= -1;
-    green += green_st;
-}
-
-red += red_st;
-if (red == 60 || red == -1) {
-    red_st *= -1;
-    red += red_st;
-}
-
-blue += blue_st;
-if (blue == 7 || blue == -1) {
-    blue_st *= -1;
-    blue += blue_st;
-}
- */
-
-/*
-__delay_ms(10);
-        
-for (ix = 0; ix < 16; ix++) {
-    MyData[ix][0] = bt;
-    MyData[ix][1] = 0;
-    MyData[ix][2] = 0;
-}
-if(bt==5)bt=10;else bt=5;
- */
-
-/*
-for (xp = 0; xp < 4; xp++) {
-    for (yp = 0; yp < 4; yp++) {
-        ix = xp * 4 + yp;
-        MyData[ix][BLUE] = 0;
-        MyData[ix][GREEN] = 10;
-        DMA1CON0bits.DMA1SIRQEN = 1;
-        __delay_ms(100);
-    }
-}
-
-for (yp = 0; yp < 4; yp++) {
-    for (xp = 0; xp < 4; xp++) {
-        ix = xp * 4 + yp;
-        MyData[ix][GREEN] = 0;
-        MyData[ix][RED] = 10;
-        DMA1CON0bits.DMA1SIRQEN = 1;
-        __delay_ms(100);
-    }
-}
-
-for (xp = 3; xp >= 0; xp--) {
-    for (yp = 0; yp < 4; yp++) {
-        ix = xp * 4 + yp;
-        MyData[ix][RED] = 0;
-        MyData[ix][BLUE] = 10;
-        DMA1CON0bits.DMA1SIRQEN = 1;
-        __delay_ms(100);
-    }
-}
- */
-
 
 /**
  End of File

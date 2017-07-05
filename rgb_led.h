@@ -36,5 +36,12 @@
 #define LED_CNT     16
 #define RGB_LED_CNT (3*LED_CNT)
 
+#define X_LED_N     4
+#define Y_LED_N     4
+
+#define SCALE_FACTOR    4
+
+#define MAX_BRIGHTNESS  16
+
 #endif	/* XC_HEADER_TEMPLATE_H */
 
