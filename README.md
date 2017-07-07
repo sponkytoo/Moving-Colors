@@ -26,3 +26,24 @@ Measured times:
 2.50 ms for calculation
 0.48 ms for transport
 
+### How to use
+All 16 RGB LED colors are calculated and put into the array.
+
+uint8_t MyPixelArray[16][3];
+
+(The 3 is for the three colors)
+
+Then the DMA Transfer of the array is started with:
+
+DMA1CON0bits.DMA1SIRQEN = 1;
+
+With a delay, the screen play is slowed down.
+
+__delay_ms(100);
+
+In this case every 100ms a new "image" is send to the LED Array.
+
+For example a 128 array, you just have to increase the Array:
+
+uint8_t MyPixelArray[128][3];
+
