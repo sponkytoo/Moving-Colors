@@ -50,3 +50,7 @@ uint8_t MyPixelArray[128][3];
 With this approach, it shpould be possible to control any of the RGB LED Matrix from Adafruit:
 https://www.adafruit.com/category/168
 
+
+And here is a video about a little crafting fun with a Mikroelektronika 4x4 RGB ClickBoard and a PIC18F25K42 Express Board:
+https://vimeo.com/224635389
+
