@@ -47,3 +47,6 @@ For example a 128 array, you just have to increase the Array:
 
 uint8_t MyPixelArray[128][3];
 
+With this approach, it shpould be possible to control any of the RGB LED Matrix from Adafruit:
+https://www.adafruit.com/category/168
+
