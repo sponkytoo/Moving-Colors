@@ -205,9 +205,9 @@ void main(void) {
                 /* calculate index from coordinates */
                 ix = xp * X_LED_N + yp;
                 /* set brightness in pixel array */
-                MyPixelArray[ix][LED_GREEN] = brightness_green;
-                MyPixelArray[ix][LED_BLUE] = brightness_blue;
-                MyPixelArray[ix][LED_RED] = brightness_red;
+                MyPixelArray[ix][LED_GREEN] = brightness_green*10;
+                MyPixelArray[ix][LED_BLUE] = brightness_blue*10;
+                MyPixelArray[ix][LED_RED] = brightness_red*10;
             }
         }
 
