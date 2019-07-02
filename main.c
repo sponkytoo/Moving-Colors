@@ -92,7 +92,7 @@ uint32_t sqrt2(uint32_t x) {
 
 /* Main application */
 void main(void) {
-    uint8_t ix = 0;
+    uint16_t ix = 0;
 
     int16_t brightness_green = 0;
     int16_t xt_green, yt_green;

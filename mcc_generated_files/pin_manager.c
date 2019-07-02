@@ -47,7 +47,6 @@
 */
 
 #include "pin_manager.h"
-#include "stdbool.h"
 
 
 
@@ -70,14 +69,14 @@ void PIN_MANAGER_Initialize(void)
     TRISE = 0x07;
     TRISA = 0xF7;
     TRISB = 0xFF;
-    TRISC = 0xD7;
+    TRISC = 0xE7;
     TRISD = 0xFF;
 
     /**
     ANSELx registers
     */
     ANSELD = 0xFF;
-    ANSELC = 0xE7;
+    ANSELC = 0xD7;
     ANSELB = 0xFF;
     ANSELE = 0x07;
     ANSELA = 0xFE;
@@ -119,29 +118,21 @@ void PIN_MANAGER_Initialize(void)
     SLRCOND = 0xFF;
     SLRCONE = 0x07;
 
+
+
+
+
    
     
-    
-    bool state = GIE;
-    GIE = 0;
-    PPSLOCK = 0x55;
-    PPSLOCK = 0xAA;
-    PPSLOCKbits.PPSLOCKED = 0x00; // unlock PPS
-
-    SPI1SDIPPSbits.SPI1SDIPPS = 0x14;   //RC4->SPI1:SDI1;
-    RC3PPS = 0x1E;   //RC3->SPI1:SCK1;
-    CLCIN0PPSbits.CLCIN0PPS = 0x00;   //RA0->CLC2:CLCIN0;
-    SPI1SCKPPSbits.SPI1SCKPPS = 0x13;   //RC3->SPI1:SCK1;
-    RC5PPS = 0x02;   //RC5->CLC2:CLC2;
-    T2INPPSbits.T2INPPS = 0x13;   //RC3->TMR2:T2IN;
-
-    PPSLOCK = 0x55;
-    PPSLOCK = 0xAA;
-    PPSLOCKbits.PPSLOCKED = 0x01; // lock PPS
-
-    GIE = state;
-}       
-
+	
+    SPI1SCKPPS = 0x13;   //RC3->SPI1:SCK1;    
+    RC3PPS = 0x1E;   //RC3->SPI1:SCK1;    
+    CLCIN0PPS = 0x00;   //RA0->CLC2:CLCIN0;    
+    RC4PPS = 0x02;   //RC4->CLC2:CLC2;    
+    T2INPPS = 0x13;   //RC3->TMR2:T2IN;    
+    SPI1SDIPPS = 0x15;   //RC5->SPI1:SDI1;    
+}
+  
 void PIN_MANAGER_IOC(void)
 {   
 }

@@ -33,11 +33,13 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-#define LED_CNT     16
+#define X_LED_N     32
+#define Y_LED_N     17
+
+#define LED_CNT     X_LED_N*Y_LED_N
 #define RGB_LED_CNT (3*LED_CNT)
 
-#define X_LED_N     4
-#define Y_LED_N     4
+
 
 #define SCALE_FACTOR    4
 
