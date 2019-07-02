@@ -1,7 +1,6 @@
-
 /**
   DMA Generated Driver File
-
+  
   @Company
     Microchip Technology Inc.
 
@@ -9,44 +8,45 @@
     dma1.c
 
   @Summary
-    This is the generated header file for the DMA driver using MPLAB(c) Code Configurator
+    This is the generated driver implementation file for the DMA driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
   @Description
-    This source file provides APIs for DMA.
+    This header file provides implementations for driver APIs for DMA CHANNEL1.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.15.3
-        Device            :  PIC18F25K42
-        Driver Version    :  1.00
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.76
+        Device            :  PIC18F47K42
+        Driver Version    :  2.10
     The generated drivers are tested against the following:
-        Compiler          :  XC8 1.35
-        MPLAB             :  MPLAB X 3.40
- */
+        Compiler          :  XC8 2.00
+        MPLAB 	          :  MPLAB X 5.10
+*/
 
 /*
-    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
-    software and any derivatives exclusively with Microchip products.
-
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
-    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
-    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
-    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
-
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
-    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
-    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
-    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
-    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
-
-    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
-    TERMS.
- */
+    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+    
+    Subject to your compliance with these terms, you may use Microchip software and any 
+    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
+    license terms applicable to your use of third party software (including open source software) that 
+    may accompany Microchip software.
+    
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
+    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
+    FOR A PARTICULAR PURPOSE.
+    
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
+    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
+    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
+    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
+    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
+    SOFTWARE.
+*/
 
 /**
   Section: Included Files
- */
+*/
 
 #include <xc.h>
 #include "dma1.h"
@@ -76,7 +76,7 @@
 
 /**
   Section: Global Variables Definitions
- */
+*/
 
 /**
   Section: DMA APIs
@@ -93,8 +93,8 @@ void DMA1_Initialize(void) {
     /* 1. Program the appropriate Source and Destination addresses for the
      * transaction into the DMAxSSA and DMAxDSA registers
      */
-    DMA1SSA = (unsigned short long) & MyPixelArray[0]; /* source address */
-    DMA1DSA = (unsigned short long) & SPI1TXB; /* destination address */
+    DMA1SSA = (__uint24) & MyPixelArray[0]; /* source address */
+    DMA1DSA = (__uint24) & SPI1TXB; /* destination address */
 
     /* 2. Select the source memory region that is being addressed by DMAxSSA
      * register, using the SMR<1:0> bits.
@@ -166,4 +166,4 @@ void DMA1_Initialize(void) {
 
 /**
   End of File
- */
+*/
