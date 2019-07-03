@@ -17,6 +17,7 @@
         <itemPath>mcc_generated_files/device_config.h</itemPath>
       </logicalFolder>
       <itemPath>rgb_led.h</itemPath>
+      <itemPath>fp_sqrt.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -38,6 +39,7 @@
         <itemPath>mcc_generated_files/device_config.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>fp_sqrt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -246,6 +248,9 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="3.375"/>
       </PICkit3PlatformTool>
+      <PKOBSKDEPlatformTool>
+        <property key="firmware.download.all" value="false"/>
+      </PKOBSKDEPlatformTool>
       <Simulator>
         <property key="codecoverage.enabled" value="Disable"/>
         <property key="codecoverage.enableoutputtofile" value="false"/>

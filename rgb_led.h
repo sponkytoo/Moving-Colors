@@ -19,31 +19,14 @@
  * TERMS. 
  */
 
-/* 
- * File:   
- * Author: 
- * Comments:
- * Revision history: 
- */
 
-// This is a guard condition so that contents of this file are not included
-// more than once.  
 #ifndef RGB_LED_H
 #define	RGB_LED_H
 
-#include <xc.h> // include processor files - each processor file is guarded.  
-
-#define X_LED_N     32
-#define Y_LED_N     17
-
-#define LED_CNT     X_LED_N*Y_LED_N
-#define RGB_LED_CNT (3*LED_CNT)
+#define LED_CNT     300
+#define RGB_LED_CNT (4*LED_CNT)
 
 
 
-#define SCALE_FACTOR    4
-
-#define MAX_BRIGHTNESS  16
-
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	/* RGB_LED_H */
 
