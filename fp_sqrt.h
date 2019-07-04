@@ -21,6 +21,8 @@
 #ifndef FP_SQRT_H
 #define	FP_SQRT_H
 
+#include <stdint.h>
+
 uint32_t SquareRoot(uint32_t a_nInput);
 uint32_t sqrt2(uint32_t x);
 
